@@ -12,7 +12,6 @@ dart:
 # See https://docs.travis-ci.com/user/languages/dart/ for details.
 dart_task:
   - test
-  - test: -p firefox
 
 # Only run one instance of the formatter and the analyzer, rather than running
 # them against each Dart version.
