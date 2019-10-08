@@ -33,11 +33,9 @@ void main() {
   test('should be close enough to system clock', () {
     // At 10ms the test doesn't seem to be flaky.
     var epsilon = 10;
-    expect(
-        DateTime.now().difference(const Clock().now()).inMilliseconds.abs(),
+    expect(DateTime.now().difference(const Clock().now()).inMilliseconds.abs(),
         lessThan(epsilon));
-    expect(
-        DateTime.now().difference(const Clock().now()).inMilliseconds.abs(),
+    expect(DateTime.now().difference(const Clock().now()).inMilliseconds.abs(),
         lessThan(epsilon));
   });
 

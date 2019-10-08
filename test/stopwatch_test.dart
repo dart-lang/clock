@@ -90,7 +90,8 @@ void main() {
 
       group("reports elapsed", () {
         test("duration", () {
-          expect(stopwatch.elapsed, equals(const Duration(microseconds: 12345)));
+          expect(
+              stopwatch.elapsed, equals(const Duration(microseconds: 12345)));
         });
 
         test("ticks", () {
@@ -146,7 +147,8 @@ void main() {
 
       group("reports elapsed", () {
         test("duration", () {
-          expect(stopwatch.elapsed, equals(const Duration(microseconds: 12345)));
+          expect(
+              stopwatch.elapsed, equals(const Duration(microseconds: 12345)));
         });
 
         test("ticks", () {
