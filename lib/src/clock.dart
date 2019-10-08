@@ -12,10 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'utils.dart';
-
 import '../clock.dart';
 import 'stopwatch.dart';
+import 'utils.dart';
 
 /// A provider for the "current time" and points relative to the current time.
 ///
@@ -34,7 +33,8 @@ class Clock {
 
   /// Creates a clock based on the given [currentTime], or on the system clock
   /// by default.
-  const Clock([DateTime currentTime() = systemTime]) : _time = currentTime;
+  // ignore: deprecated_member_use_from_same_package
+  const Clock([DateTime Function() currentTime = systemTime]) : _time = currentTime;
 
   /// Creates [Clock] that always considers the current time to be [time].
   Clock.fixed(DateTime time) : _time = (() => time);
@@ -52,13 +52,13 @@ class Clock {
   ///
   /// The amount of time is the sum of the individual parts.
   DateTime ago(
-          {int days: 0,
-          int hours: 0,
-          int minutes: 0,
-          int seconds: 0,
-          int milliseconds: 0,
-          int microseconds: 0}) =>
-      agoBy(new Duration(
+          {int days = 0,
+          int hours = 0,
+          int minutes = 0,
+          int seconds = 0,
+          int milliseconds = 0,
+          int microseconds =  0}) =>
+      agoBy(Duration(
           days: days,
           hours: hours,
           minutes: minutes,
@@ -70,13 +70,13 @@ class Clock {
   ///
   /// The amount of time is the sum of the individual parts.
   DateTime fromNow(
-          {int days: 0,
-          int hours: 0,
-          int minutes: 0,
-          int seconds: 0,
-          int milliseconds: 0,
-          int microseconds: 0}) =>
-      fromNowBy(new Duration(
+          {int days = 0,
+          int hours = 0,
+          int minutes = 0,
+          int seconds = 0,
+          int milliseconds = 0,
+          int microseconds = 0}) =>
+      fromNowBy(Duration(
           days: days,
           hours: hours,
           minutes: minutes,
@@ -137,7 +137,7 @@ class Clock {
     var month = (time.month - months - 1) % 12 + 1;
     var year = time.year - (months + 12 - time.month) ~/ 12;
     var day = clampDayOfMonth(year: year, month: month, day: time.day);
-    return new DateTime(year, month, day, time.hour, time.minute, time.second,
+    return DateTime(year, month, day, time.hour, time.minute, time.second,
         time.millisecond);
   }
 
@@ -150,7 +150,7 @@ class Clock {
     var month = (time.month + months - 1) % 12 + 1;
     var year = time.year + (months + time.month - 1) ~/ 12;
     var day = clampDayOfMonth(year: year, month: month, day: time.day);
-    return new DateTime(year, month, day, time.hour, time.minute, time.second,
+    return DateTime(year, month, day, time.hour, time.minute, time.second,
         time.millisecond);
   }
 
@@ -162,7 +162,7 @@ class Clock {
     var time = now();
     var year = time.year - years;
     var day = clampDayOfMonth(year: year, month: time.month, day: time.day);
-    return new DateTime(year, time.month, day, time.hour, time.minute,
+    return DateTime(year, time.month, day, time.hour, time.minute,
         time.second, time.millisecond);
   }
 
@@ -172,10 +172,10 @@ class Clock {
   /// valid day in the original month will be used.
   DateTime yearsFromNow(int years) => yearsAgo(-years);
 
-  /// Returns a new stopwatch that uses the current time as reported by [this].
-  Stopwatch stopwatch() => new ClockStopwatch(this);
+  /// Returns a new stopwatch that uses the current time as reported by `this`.
+  Stopwatch stopwatch() => ClockStopwatch(this);
 
-  /// Returns a new stopwatch that uses the current time as reported by [this].
+  /// Returns a new stopwatch that uses the current time as reported by `this`.
   @Deprecated("Use stopwatch() instead.")
   Stopwatch getStopwatch() => stopwatch();
 }
