@@ -1,0 +1,19 @@
+name: clock_example
+description: Demonstrates how to use the clock package.
+version: 1.0.0
+
+environment:
+  sdk: ">=2.1.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  clock: ^1.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  test: ^1.9.4
+  fake_async: ^1.0.1
+
+
