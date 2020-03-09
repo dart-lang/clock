@@ -1,6 +1,6 @@
 name: clock
 version: 1.0.2-dev
-description: A fakeable wrapper for dart:core clock APIs
+description: A fakeable wrapper for dart:core clock APIs to reliably test timing-dependent code.
 homepage: https://github.com/dart-lang/clock
 
 environment:
