@@ -6,9 +6,6 @@ homepage: https://github.com/dart-lang/clock
 environment:
   sdk: '>=2.8.0-dev <3.0.0'
 
-dependencies:
-  meta: ^1.0.0
-
 dev_dependencies:
   test: ^1.0.0
   pedantic: ^1.8.0
