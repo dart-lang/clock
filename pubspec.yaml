@@ -4,7 +4,7 @@ description: A fakeable wrapper for dart:core clock APIs
 homepage: https://github.com/dart-lang/clock
 
 environment:
-  sdk: '>=2.8.0-dev <3.0.0'
+  sdk: '>=2.9.0-1 <3.0.0'
 
 dev_dependencies:
   test: ^1.0.0
