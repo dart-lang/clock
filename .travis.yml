@@ -5,14 +5,9 @@ dart:
 
 dart_task:
   - test: -p vm,chrome
-
-matrix:
-  include:
-  - dart: preview/raw/2.10.0-0.2-dev
-    dart_task: dartfmt
-  - dart: preview/raw/2.10.0-0.2-dev
-    dart_task:
-      dartanalyzer: --fatal-lints --fatal-warnings .
+  - dartfmt
+  - dartanalyzer: --fatal-lints --fatal-warnings .
+      
 
 # Only building master means that we don't run two builds for each pull request.
 branches:
